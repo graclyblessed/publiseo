@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "image_3: \"I hold a hair aryer over the water ring on my wooden table for 10 minutes.\" vs \"I hold a hair dryer over the water ring on my wooden table for 10 minutes.\"",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1775608475,
+  "id": "20260408083432a6e2c970d5b0427f",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "20260408083432a6e2c970d5b0427f",
+  "usage": {
+    "completion_tokens": 47,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3911,
+    "prompt_tokens_details": {
+      "cached_tokens": 4
+    },
+    "total_tokens": 3958
+  }
+}

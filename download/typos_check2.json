@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "image1: \"hodhpaise\" should be \"toothpaste\"\nimage2: \"draer\" should be \"drawer\"\nimage3: OK",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1775608478,
+  "id": "202604080834367273b30c848b41fe",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "202604080834367273b30c848b41fe",
+  "usage": {
+    "completion_tokens": 34,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3911,
+    "prompt_tokens_details": {
+      "cached_tokens": 87
+    },
+    "total_tokens": 3945
+  }
+}

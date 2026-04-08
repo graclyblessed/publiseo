@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "image_1: \"HOW TO KEEP YOU HOMEFUL AT A DROP!\" vs \"HOW TO KEEP YOUR HOMEFUL AT A DROP!\"  \nimage_2: \"This is happened (pic in cmt)\" vs \"This has happened (pic in cmt)\"  \nimage_3: \"This is happened (pic in cmt)\" vs \"This has happened (pic in cmt)\"  \nimage_4: \"I put ice cripes and salt on the grease stait on my shirt.\" vs \"I put ice cubes and salt on the grease stain on my shirt.\"",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1775608487,
+  "id": "20260408083439d8cbdf09479a4e57",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "20260408083439d8cbdf09479a4e57",
+  "usage": {
+    "completion_tokens": 121,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5184,
+    "prompt_tokens_details": {
+      "cached_tokens": 6
+    },
+    "total_tokens": 5305
+  }
+}
