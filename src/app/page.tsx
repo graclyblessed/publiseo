@@ -98,24 +98,35 @@ function Header() {
 }
 
 function DashboardTabs() {
+  const [gridCols, setGridCols] = useState('repeat(2, 1fr)');
+
+  useEffect(() => {
+    const updateGrid = () => {
+      setGridCols(window.innerWidth >= 640 ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)');
+    };
+    updateGrid();
+    window.addEventListener('resize', updateGrid);
+    return () => window.removeEventListener('resize', updateGrid);
+  }, []);
+
   return (
     <Tabs defaultValue="dashboard" className="space-y-6">
-      <TabsList className="grid w-full grid-cols-4 bg-white shadow-sm rounded-xl p-1 h-auto">
-        <TabsTrigger value="dashboard" className="flex items-center gap-2 py-3 text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all">
-          <LayoutDashboard className="w-4 h-4" />
-          <span className="hidden sm:inline">Tableau de bord</span>
+      <TabsList className="w-full bg-white shadow-sm rounded-xl p-1.5 h-auto gap-1" style={{ display: 'grid', gridTemplateColumns: gridCols }}>
+        <TabsTrigger value="dashboard" className="flex items-center justify-center gap-1.5 py-3 px-1 text-[11px] sm:text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all min-h-[48px]">
+          <LayoutDashboard className="w-5 h-5 sm:w-4 sm:h-4 shrink-0" />
+          <span className="truncate">Tableau de bord</span>
         </TabsTrigger>
-        <TabsTrigger value="posts" className="flex items-center gap-2 py-3 text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all">
-          <ImageIcon className="w-4 h-4" />
-          <span className="hidden sm:inline">Publier Images</span>
+        <TabsTrigger value="posts" className="flex items-center justify-center gap-1.5 py-3 px-1 text-[11px] sm:text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all min-h-[48px]">
+          <ImageIcon className="w-5 h-5 sm:w-4 sm:h-4 shrink-0" />
+          <span className="truncate">Publier Images</span>
         </TabsTrigger>
-        <TabsTrigger value="articles" className="flex items-center gap-2 py-3 text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all">
-          <Newspaper className="w-4 h-4" />
-          <span className="hidden sm:inline">Publier Articles</span>
+        <TabsTrigger value="articles" className="flex items-center justify-center gap-1.5 py-3 px-1 text-[11px] sm:text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all min-h-[48px]">
+          <Newspaper className="w-5 h-5 sm:w-4 sm:h-4 shrink-0" />
+          <span className="truncate">Publier Articles</span>
         </TabsTrigger>
-        <TabsTrigger value="recent" className="flex items-center gap-2 py-3 text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all">
-          <Clock className="w-4 h-4" />
-          <span className="hidden sm:inline">Articles Récents</span>
+        <TabsTrigger value="recent" className="flex items-center justify-center gap-1.5 py-3 px-1 text-[11px] sm:text-sm data-[state=active]:bg-amber-500 data-[state=active]:text-white rounded-lg transition-all min-h-[48px]">
+          <Clock className="w-5 h-5 sm:w-4 sm:h-4 shrink-0" />
+          <span className="truncate">Articles Récents</span>
         </TabsTrigger>
       </TabsList>
 
