@@ -3,9 +3,9 @@
 
 export const WP_CONFIG = {
   siteUrl: 'https://roisdumenage.fr/',
-  apiUrl: 'https://roisdumenage.fr/wp-json/wp/v2/',
+  apiUrl: 'https://roisdumenage.fr/index.php/wp-json/wp/v2/',
   username: 'roisdumenageparfait',
-  appPassword: 'LlI2danvFp44yGzKs7xpZcBc',
+  appPassword: 'LlI2 danv Fp44 yGzK s7xp ZcBc',
   siteName: 'Trucs Malins pour la Maison',
 } as const;
 

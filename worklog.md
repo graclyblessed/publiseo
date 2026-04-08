@@ -1,7 +1,39 @@
 ---
-Task ID: 1
+Task ID: 3
 Agent: Main Agent
-Task: Analyze Tips for the Home Facebook page content and ad strategy
+Task: Build WordPress Publishing Tool as Next.js web app
+
+Work Log:
+- Read prior context from worklog.md (2 previous tasks about FB page analysis and content creation)
+- Analyzed existing codebase: wordpress.ts, post-data.ts (33 posts), existing API routes
+- Fixed WordPress API URL to use /index.php/ prefix (roisdumenage.fr/index.php/wp-json/wp/v2/)
+- Fixed WordPress app password (with spaces: "LlI2 danv Fp44 yGzK s7xp ZcBc")
+- Created src/data/articles.ts with 5 substantial French home tips articles
+- Created 6 new WordPress API proxy routes:
+  - /api/wordpress/test-connection (GET/POST)
+  - /api/wordpress/categories (GET)
+  - /api/wordpress/upload (POST - multipart)
+  - /api/wordpress/publish-post (POST - with image upload + post creation)
+  - /api/wordpress/publish-article (POST - text article)
+  - /api/wordpress/posts (GET - with pagination)
+- Built complete single-page UI (src/app/page.tsx) with 4 tabs:
+  - Tableau de bord: Connection status, stats cards, quick actions
+  - Publier Images: Grid gallery of 33 images with selection, category picker, bulk publish
+  - Publier Articles: List of 5 articles with category selectors, individual/bulk publish
+  - Articles Récents: Paginated list of recent WP posts with status badges
+- Updated layout.tsx with French title and language
+- Used warm amber/orange color scheme, shadcn/ui components throughout
+- All UI text in French
+- Verified: dev server running, all API routes returning 200, WordPress connected
+
+Stage Summary:
+- Full WordPress publishing tool operational with 4-tab interface
+- WordPress API connection confirmed working (test-connection returns 200)
+- 33 post images available for publishing with pre-written content
+- 5 full articles ready for publishing
+- Credentials never exposed to client (all through server-side API routes)
+- Lint clean on src/ (only pre-existing errors in download/ folder)
+
 
 Work Log:
 - Fetched page data via web reader (page description, metadata, OG tags)
@@ -43,3 +75,23 @@ Stage Summary:
 - Growth strategy in 3 phases (Foundation, Acceleration, Scale)
 - Visual design system fully documented with color palette and composition rules
 
+
+---
+Task ID: 1
+Agent: Main
+Task: WordPress Publishing Tool - Build complete publishing tool for roisdumenage.fr
+
+Work Log:
+- Tested WordPress REST API connection - initially failed with 401
+- Identified correct username: `roisdumenageparfait` (not `trucsetastucespourlamaison`)
+- Successfully authenticated with WordPress API (200 OK)
+- Built full Next.js publishing tool with 4 tabs (Dashboard, Publish Images, Publish Articles, Recent Posts)
+- Created API routes: test-connection, categories, upload, publish-post, publish-article, posts, serve-image
+- Verified all API routes working (200 responses in dev log)
+- Lint check: only pre-existing JS helper scripts have errors, new app code is clean
+
+Stage Summary:
+- WordPress credentials confirmed: username=`roisdumenageparfait`, password=`LlI2 danv Fp44 yGzK s7xp ZcBc`
+- Full publishing tool operational at the web preview
+- All 33 post images and 5 articles ready for publishing
+- Site categories fetched (19 categories available)
