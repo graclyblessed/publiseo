@@ -19,6 +19,7 @@ import {
   ChevronRight, AlertCircle, Loader2, Eye, ExternalLink,
   Newspaper, LayoutDashboard, PackageOpen
 } from 'lucide-react';
+import { ARTICLES } from '@/data/articles';
 
 // Types
 interface ImageItem {
@@ -597,13 +598,13 @@ function PublishArticlesTab() {
   const [publishStatus, setPublishStatus] = useState<Map<number, 'idle' | 'publishing' | 'success' | 'error'>>(new Map());
   const [publishAsDraft, setPublishAsDraft] = useState(false);
 
-  const articles: ArticleItem[] = [
-    { id: 1, title: "10 astuces de grand-mère pour un ménage écologique et efficace", excerpt: "Redécouvrez les secrets de nos grands-parents...", content: '', defaultCategoryId: 17 },
-    { id: 2, title: "Guide complet du nettoyage de printemps : pièce par pièce", excerpt: "Suivez notre guide méthodique...", content: '', defaultCategoryId: 18 },
-    { id: 3, title: "Comment éliminer le calcaire dans toute la maison : guide définitif", excerpt: "Le calcaire est l'ennemi numéro un...", content: '', defaultCategoryId: 21 },
-    { id: 4, title: "Gérer les tâches ménagères quand on manque de temps : la méthode des 15 minutes", excerpt: "Découvrez la méthode des 15 minutes...", content: '', defaultCategoryId: 20 },
-    { id: 5, title: "Les 8 erreurs de nettoyage que tout le monde fait", excerpt: "Votre ménage n'est jamais aussi propre...", content: '', defaultCategoryId: 22 },
-  ];
+  const articles: ArticleItem[] = ARTICLES.map(a => ({
+    id: a.id,
+    title: a.title,
+    excerpt: a.excerpt,
+    content: a.content,
+    defaultCategoryId: a.defaultCategoryId,
+  }));
 
   useEffect(() => {
     async function fetch() {

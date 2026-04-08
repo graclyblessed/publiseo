@@ -12,8 +12,8 @@ export async function GET(request: NextRequest) {
   }
 
   // Security: prevent directory traversal
-  const safeFilename = path.basename(filename);
-  if (safeFilename !== filename) {
+  const safeFilename = path.basename(decodeURIComponent(filename));
+  if (decodeURIComponent(filename) !== safeFilename) {
     return NextResponse.json({ error: 'Invalid filename' }, { status: 400 });
   }
 

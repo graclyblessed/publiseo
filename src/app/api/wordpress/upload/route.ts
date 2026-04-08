@@ -28,18 +28,15 @@ export async function POST(request: NextRequest) {
     }
 
     const imageBuffer = fs.readFileSync(imagePath);
-    const imageBlob = new Blob([imageBuffer], { type: 'image/png' });
-
-    const wpFormData = new FormData();
-    wpFormData.append('file', imageBlob, safeFilename);
 
     const mediaResponse = await fetch(`${WP_CONFIG.apiUrl}media`, {
       method: 'POST',
       headers: {
         Authorization: getAuthHeader(),
         'Content-Disposition': `attachment; filename="${safeFilename}"`,
+        'Content-Type': 'image/png',
       },
-      body: wpFormData,
+      body: imageBuffer,
     });
 
     if (!mediaResponse.ok) {
